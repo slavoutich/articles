@@ -1,0 +1,315 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,left=3cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ukrainian]{babel}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+
+%\onehalfspacing
+
+\DeclareMathOperator{\Li}{Li}
+
+%opening
+\title{Bubblon formation. Variational approach.}
+\author{}
+
+\begin{document}
+
+%\maketitle
+
+%\begin{abstract}
+
+%\end{abstract}
+
+\section{Statement of the problem}
+
+Suppose that we have system of electrons on the liquid helium film in holding field.
+We concieder that bubblon has formated.
+Let's put point of origin to its center.
+We describe electron distribution in quasiclassical approach with density $\rho(r).$
+Suppose that curve of helium film is small, so in the order of accuracy we can think that form of electron film is the same to the form of liquid helium surface.We can describe this form by function $z(r),$ assuming $z(\infty)=0.$ 
+
+Now we can write energy balanse. Energy of the surface tension:
+\begin{equation}
+  E_{ST} [z] = 2 \pi \sigma \int\limits_0^\infty dr \, r \sqrt{1+z^{\prime 2} (r)}.
+\end{equation}
+%Internal coulombian energy of the electron film:
+Energy of the film caused by internal interaction:
+\begin{equation}
+%  E_{int} [\rho] = \int_S d^2 r \int_S d^2 r^{\prime} \, \frac{\rho(r) \rho(r')}{|\vec{r} - \vec{r}^{\prime}|} = 2 \pi \int\limits_0^\infty dr \int\limits_0^\infty dr^{\prime} \int\limits_0^{2\pi} d\varphi \frac{r r^{\prime} \rho(r) \rho(r')}{\sqrt{r^2 + r^{\prime 2} - 2 r r^{\prime} \cos \varphi}}.
+  \begin{aligned}
+    E_{int}& [\rho] = \int_S d^2 r \int_S d^2 r^{\prime} \, \rho(r) \rho(r^{\prime}) \left( \frac{1}{|\vec{r} - \vec{r}^{\prime}|} - \frac{ \delta }{ \sqrt{ \left( \vec{r} - \vec{r}^{\prime} \right)^2 + 4 d^2 } } \right) = \\
+    &{} = 2 \pi \int\limits_0^\infty dr \int\limits_0^\infty dr^{\prime} \int\limits_0^{2\pi} d\varphi \, r r^{\prime} \rho(r) \rho(r') \left( \frac{1}{ \sqrt{r^2 + r^{\prime 2} - 2 r r^{\prime} \cos \varphi}} - \frac{\delta}{ \sqrt{ r^2 + r^{\prime 2} - 2 r r^{\prime} \cos \varphi + 4 d^2 } } \right)
+  \end{aligned}
+\end{equation}
+Energy of the electron film in external field:
+\begin{equation}
+  E_{ext} [\rho,z] = \int_S d^2 r \, \rho(r) E z(r) = 2 \pi E \int\limits_0^\infty dr \, r \rho(r) z(r).
+\end{equation}
+We can construct energy functional:
+\begin{equation}
+  E[\rho,z] = E_{ST}[z] + E_{int}[\rho] + E_{ext}[\rho,z].
+\end{equation}
+
+Now we should minimize this functional due to some additional conditions. First we can assume that liquid level at infinity is zero:
+\begin{equation}
+  z(\infty) = 0 \label{boundary_z_0}.
+\end{equation}
+Then, to have no singularities in surface $r=0$ we must assume:
+\begin{eqnarray}
+  &z'(0) = 0, \label{boundary_z_infty}\\
+  &\rho'(0) = 0 \label{boundary_rho_0}.  
+\end{eqnarray}
+Also, we should assume canonical ensemble and fix number of particles, or total charge of the film, which is the same:
+\begin{equation}
+  \int\limits_S d^2 r \rho(\vec{r}) = Q.
+\end{equation}
+We should include it to our functional with Lagrange factor $\lambda$. So, calculating variations by $z(r)$ and $\rho(r),$ we obtain:
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      &-\sigma \frac{z'(r) + z'^3(r) + r z''(r)}{(1+z'^2(r))^{3/2}} + E r \rho(r) = 0;\\
+      &2 \int\limits_0^\infty dr^{\prime} \int\limits_0^{2\pi} d\varphi \, r r^{\prime} \rho(r^{\prime}) \left( \frac{1}{ \sqrt{r^2 + r^{\prime 2} - 2 r r^{\prime} \cos \varphi}} - \frac{\delta}{ \sqrt{ r^2 + r^{\prime 2} - 2 r r^{\prime} \cos \varphi + 4 d^2 } } \right) + E r z(r) + \lambda r = 0.
+    \end{aligned}
+  \right.
+\end{equation}
+
+We can introduse characteristic length of system $ a = \frac{e E}{\sigma}, $ where $e$ is electron charge. Taking this into account, we can rewrite this system in dimensionless view:
+\begin{eqnarray}
+  &r = a \xi;\nonumber\\
+  &z(r) = a \zeta (\xi);\nonumber\\
+  &\rho(r) = \frac{e n(\xi)}{a^2};\nonumber\\
+  &d = a \kappa;\nonumber\\
+  &\mu = \frac{E a^2}{2 e} = \frac{e E^3}{2 \sigma^2};\nonumber\\
+  &\nu = \frac{\lambda a}{2 e};\nonumber\\
+  &\left\{
+    \begin{aligned}
+      &\frac{\zeta'(\xi) + \zeta'^3(\xi) + \xi \zeta''(\xi)}{(1+\zeta'^2(\xi))^{3/2}} = \xi n(\xi),\\
+      &\int\limits_0^\infty d \xi^{\prime} \int\limits_0^{2 \pi} d \varphi \xi^{\prime} n( \xi^{\prime} ) \left( \frac{1}{ \sqrt{\xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi}} - \frac{\delta}{ \sqrt{ \xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi + 4 \kappa^2 } } \right) + \mu \zeta(\xi) + \nu = 0.
+    \end{aligned}
+    \label{system_dimensionless}
+  \right.  
+\end{eqnarray}
+
+%We expect additivity of $z'.$ This means that the only minimum of our distribution is situated in $r=0.$
+%Also we know that $\rho(r) \geqslant 0.$ Taking this into account, first equation can be presented in such way:
+%\begin{equation}
+%  \frac{dz}{dr} = \frac{f(r)}{\sqrt{r^2-f^2(r)}},
+%\end{equation}
+%where
+%$$
+%f(r) = \frac{E}{\sigma}
+%       \int\limits_0^r
+%           t\rho(t)
+%       dt + C_1
+%$$
+%$C_1$\,--- integration constant. Second equation of this system can be rewritten in the terms of ellitic integrals:
+%\begin{equation}
+%  4 \int\limits_0^\infty dr^{\prime} \, r^{\prime} \rho(r^{\prime}) \left[ \frac{1}{|r - r^{\prime}|} F \left( \pi, \frac{2 i \sqrt{r r^{\prime}}}{r - r^{\prime}} \right) - \frac{1}{\sqrt{(r - r^{\prime})^2 + 4 d^2}} F \left( \pi, \frac{2 i \sqrt{r r^{\prime}}}{\sqrt{(r - r^{\prime})^2 + 4 d^2}} \right) \right] + E z(r) + \lambda = 0.
+%\end{equation}
+
+
+%Substitution of $\rho(r)$ from first equation to the second one gives us an integro-differential equation, that depends only on $z$:
+%\begin{equation}
+%  \begin{aligned}
+%    2 \sigma \int\limits_0^\infty dr^{\prime} \int\limits_0^{2\pi} d \varphi \frac{z'(r^{\prime}) + z'^3 (r^{\prime}) + r^{\prime} z''(r^{\prime})}{ (1 + z'^2 (r^{\prime}))^{3/2} } &\left( \frac{1}{ \sqrt{r^2 + r^{\prime 2} - 2 r r^{\prime} \cos \varphi}} - \frac{\delta}{ \sqrt{ r^2 + r^{\prime 2} - 2 r r^{\prime} \cos \varphi + 4 d^2 } } \right) + \\
+%    &{} + E^2 z(r) + \lambda E = 0.
+%  \end{aligned}
+%\end{equation}
+
+%A system of solutions of this equation would give us a set of possible forms $z(r)$ that can be realized due to number of electrons formating bubblon.
+
+\section{Solving the system}
+
+First equation of system (\ref{system_dimensionless}) can be solved in terms of quadratures.
+Srough it first derivative of $\zeta(\xi)$ can be connected with density $n(\xi).$
+A key for solution is hyperbolic substitution:
+\begin{equation}
+  \zeta'(\xi) = \sinh \theta (\xi).
+\end{equation}
+Through it this equation can be simplified:
+\begin{equation}
+  \tanh' \theta + \frac{\tanh \theta}{\xi} = n(\xi).
+\end{equation}
+This equation can be easily solved by standart methods.
+Transferring back to hyperbolic sinuses, we obtain:
+\begin{equation}
+  \frac{d \zeta}{d \xi} = \frac{f(\xi)}{\sqrt{\xi^2 - f^2 (\xi)}},
+  \label{dzetadxi_from_f}
+\end{equation}
+where 
+\begin{equation}
+  f(\xi) = \int\limits_0^\xi t n(t) \, dt.
+  \label{f_from_n}
+\end{equation}
+It was taken into account conition~(\ref{boundary_z_0}) to determinate integration constant.
+
+In system (\ref{system_dimensionless}) we have two unknown functions: $\zeta(\xi)$ and $n(\xi).$
+It is inconvenient for us.
+Using equations (\ref{dzetadxi_from_f}) and (\ref{f_from_n}), that can substitute first equation in (\ref{system_dimensionless}), we can bring it to one unknown function.
+It will be $f(\xi).$
+If we know it, we can easily get $\zeta(\xi)$ and $n(\xi)$:
+\begin{eqnarray}
+  &\zeta(\xi) = - \int\limits_\xi^\infty d\xi^{\prime} \, \frac{f(\xi^{\prime})}{\sqrt{\xi^{\prime 2} - f^2(\xi^{\prime})}}, \label{zeta_from_f}\\
+  &n(\xi) = \frac{1}{\xi} \frac{df}{d\xi}. \label{n_from_f}
+\end{eqnarray}
+To do this, we will integrate second equation of (\ref{system_dimensionless}) by parts:
+\begin{equation}
+  \begin{aligned}
+    &\int\limits_0^\infty d \xi^{\prime} \frac{\xi^{\prime} n(\xi^{\prime})}{ \sqrt{ \xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi + 4 \kappa^2 } } = \left. \frac{1}{\sqrt{ \xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi + 4 \kappa^2 }} \int\limits_0^{\xi^{\prime}} dt \, t n(t) \right|_{\xi^{\prime} = 0}^{\xi^{\prime} = \infty} + \\
+    &{} + \int\limits_0^\infty d \xi^{\prime} \frac{\xi^{\prime} - \xi \cos \varphi}{ ( \xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi + 4 \kappa^2 )^{3/2}} \int\limits_0^{\xi^{\prime}} dt \, t n(t) = \left. \frac{f(\xi^{\prime})}{\sqrt{ \xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi + 4 \kappa^2 }} \right|_{\xi^{\prime} = 0}^{\xi^{\prime} = \infty} + \\
+    &{} +  \int\limits_0^\infty d \xi^{\prime} \frac{(\xi^{\prime} - \xi \cos \varphi) f(\xi^{\prime})}{ ( \xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi + 4 \kappa^2 )^{3/2}} 
+  \end{aligned}
+\end{equation}
+
+It is easy to show, that first item of this equation equals zero.
+It is obvious from (\ref{f_from_n}) that on the lower bound we have 0. %Как-то тавтологично получилось
+Let's find now limit:
+$$
+  \lim_{\xi^{\prime} \rightarrow \infty} \frac{f(\xi^{\prime})}{\sqrt{ \xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi + 4 \kappa^2 }} = \lim_{\xi^{\prime} \rightarrow \infty} \frac{f(\xi^{\prime})}{\xi^{\prime}}.
+$$
+From (\ref{boundary_z_infty}) we have:
+\begin{equation}
+  \lim_{\xi \rightarrow \infty} \frac{d \zeta}{d \xi} = \lim_{\xi \rightarrow \infty} \frac{f(\xi)}{\sqrt{\xi^2 - f^2 (\xi)}} = 0.
+\end{equation}
+Let's write the defenition of this limit:
+$$
+  \begin{aligned}
+    &\forall \varepsilon>0\ \exists \varXi:\ \forall \xi > \varXi\ 
+    \left| \frac{f(\xi)}{\sqrt{\xi^2-f^2(\xi)}} \right| = \frac{|f(\xi)|}{\sqrt{\xi^2-f^2(\xi)}} < \varepsilon \Rightarrow \frac{f^2(\xi)}{\xi^2 - f^2(\xi)} < \varepsilon^2 \Rightarrow \\
+    &{} \Rightarrow f^2(\xi) < (1 + \varepsilon^2) f^2(\xi) < \varepsilon^2 \xi^2 \Rightarrow \frac{f^2(\xi)}{\xi^2}<\varepsilon^2 \Rightarrow \frac{|f(\xi)|}{\xi} < \varepsilon.
+  \end{aligned}
+$$
+This means that by definition of limit
+$$
+  \lim_{\xi^{\prime} \rightarrow \infty} \frac{f(\xi^{\prime})}{\xi^{\prime}} = 0.
+$$
+So, we have:
+\begin{equation}
+  \lim_{\xi^{\prime} \rightarrow \infty} \frac{f(\xi^{\prime})}{\sqrt{ \xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi + 4 \kappa^2 }} = 0.
+\end{equation}
+Now we can rewrite second equation of (\ref{system_dimensionless}), taking into account (\ref{boundary_z_infty}):
+\begin{equation}
+  \begin{aligned}
+    &\int\limits_0^\infty d \xi^{\prime} \int\limits_0^{2 \pi} d \varphi \, (\xi^{\prime} - \xi \cos \varphi) f(\xi^{\prime}) \left( \frac{1}{ (\xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi)^{3/2}} - \frac{\delta}{ ( \xi^2 + \xi^{\prime 2} - 2 \xi \xi^{\prime} \cos \varphi + 4 \kappa^2 )^{3/2} } \right) + \\
+    &{} - \mu \int\limits_\xi^{\infty} d\xi^{\prime} \frac{f(\xi^{\prime})}{\sqrt{\xi^{\prime 2} - f^2 (\xi^{\prime})}} + \nu = 0.
+  \end{aligned}
+  \label{eqn_f}
+\end{equation}
+%We can integrate it by $\varphi$:
+%\begin{equation}
+%  \int\limits_0^\infty d \xi^{\prime} \frac{1-\delta}{\xi^{\prime}} \left[ (\xi-\xi^{\prime}) E \left( - \frac{4 \xi \xi^{\prime}}{(\xi - \xi^{\prime})^2} \right) \sign (\xi-\xi^{\prime}) + (\xi+\xi^{\prime}) E\left(  \frac{4 \xi \xi^{\prime}}{(\xi + \xi^{\prime})^2} \right) - (\xi+\xi^{\prime}) K \left( - \frac{4 \xi \xi^{\prime}}{(\xi - \xi^{\prime})^2} \right) \sign (\xi-\xi^{\prime}) - (\xi-\xi^{\prime}) K\left(  \frac{4 \xi \xi^{\prime}}{(\xi + \xi^{\prime})^2} \right)  \right]
+%\end{equation}
+
+%\subsection{Thick film approximation}
+
+%\LARGE{TODO}
+
+\subsection{Asympthotic solutions}
+
+\subsubsection{Small $\xi$}
+
+For small $\xi$ we can expand expression in (\ref{eqn_f}) in series by it and integrate by angle.
+We have to expand to quadratic terms, because in zero $f(\xi)$ should have zero derivative.
+It should be mentioned, that this is accurate up to $O(\xi^4)$, because cubicle terms don't present in expansion.
+We get:
+\begin{equation}
+  \begin{aligned}
+    &\pi \int\limits_0^\infty d \xi^{\prime} \, f(\xi^{\prime}) \frac{ \delta  \xi^{\prime 3} \left(-64 \kappa ^4+16 \kappa ^2 \left(\xi ^2-2 \xi^{\prime 2} \right)+\xi^2 \xi^{\prime 2}-4 \xi^{\prime 4}\right)+\left(4 \kappa ^2+\xi^{\prime 2} \right)^{5/2} \left(4 \xi^{\prime 2} -\xi ^2\right)}{2 \xi^{\prime 2} \left(4 \kappa ^2+\xi^{\prime 2}\right)^{5/2}} - \\
+    &{} - \mu \int\limits_\xi^\infty d \xi^{\prime} \frac{f(\xi^{\prime})}{\sqrt{\xi^{\prime 2} - f^2 (\xi^{\prime})}} + \nu = 0.
+  \end{aligned}
+\end{equation}
+We can differentiate this equation by $\xi$:
+\begin{equation}
+  \pi \xi \int\limits_0^\infty d \xi^{\prime} \, f(\xi^{\prime}) \left( \frac{1}{\xi^{\prime 2}} - \frac{\delta \xi^{\prime} ( \xi^{\prime 2} + 16 \kappa^2 )}{(\xi^{\prime 2} + 4 \kappa^2)^{5/2}} \right) + \mu \frac{f(\xi)}{\sqrt{\xi^{2} - f^2 (\xi)}} = 0.
+\end{equation}
+We can separate $\xi$ and $\xi^{\prime}$ now:
+\begin{equation}
+  \frac{\pi}{\mu} \int\limits_0^\infty d \xi^{\prime} \, f(\xi^{\prime}) \left( \frac{1}{\xi^{\prime 2}} - \frac{\delta \xi^{\prime} ( \xi^{\prime 2} + 16 \kappa^2 )}{(\xi^{\prime 2} + 4 \kappa^2)^{5/2}} \right) =  \frac{f(\xi)}{\xi \sqrt{\xi^{2} - f^2 (\xi)}}.
+\end{equation}
+It is useful for us to divide this equation in two parts:
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      &\frac{f(\xi)}{\xi \sqrt{\xi^{2} - f^2 (\xi)}} = C_1,\\
+      &\frac{\pi}{\mu} \int\limits_0^\infty d \xi^{\prime} \, f(\xi^{\prime}) \left( \frac{1}{\xi^{\prime 2}} - \frac{\delta \xi^{\prime} ( \xi^{\prime 2} + 16 \kappa^2 )}{(\xi^{\prime 2} + 4 \kappa^2)^{5/2}} \right) = C_1.
+    \end{aligned}
+  \right.
+  \label{asmpt_0}
+\end{equation}
+%We can find shape of answer from first equation, and then put it to second to find $C$.
+From first equation we can see that due to to the accuracy of expansion:
+\begin{equation}
+  f(\xi) = \frac{C_1 \xi^2}{\sqrt{1+C_1^2 \xi^2}} = C_1 \xi^2 + O(\xi^4)
+\end{equation}
+To obtain $C_1$ from second equation we must know behaviour of $f(\xi)$ in all definitional domain, but we know it only near $\xi = 0.$
+So, for now we should stop on this point.
+%\begin{eqnarray}
+%  &f(\xi) = \frac{C \xi^2}{\sqrt{1+C^2 \xi^2}}; \label{asympthotic_f_0}\\
+%  &\frac{\pi}{\mu} \int\limits_0^\infty d \xi \left( \frac{C}{\sqrt{1+C^2 \xi^2}} - \frac{\delta \xi^3 ( \xi^{2} + 16 \kappa^2 )}{(\xi^{2} + 4 \kappa^2)^{5/2} \sqrt{1+C^2 \xi^2}} \right) = C. \label{eqn_C}
+%\end{eqnarray}
+%Reffering to the accuracy of expansion, we should rewrite~(\ref{asympthotic_f_0}):
+%\begin{equation}
+%  f(\xi) = C \xi^2 + O(\xi^4).
+%\end{equation}
+
+
+%Really integral in (\ref{eqn_C}) does not converge.
+%Mathematically it is rather unpleasant, but from the point of view of physicict everything is clear.
+%Really, to perform normalization of whole function we should know its behaviour in all definitional domain, but we know it only near $\xi = 0.$
+%So, we can conclude only that $f(\xi)$ has quadratical behaviour near zero, that realy should be expected from initial symmetry of system.
+
+%Now we can obtain distributions of $\zeta(\xi)$ and $n(\xi)$ near zero, using equations~(\ref{zeta_from_f}) and~(\ref{f_from_n}).
+\subsubsection{Large $\xi$}
+
+We can perform analogic manipulations to obtain asympthotic solution in case of large $\xi$.
+We will parform series expand of integrated function accurate to the $O(1/\xi^2)$.
+Now we will parform actions simply analogical to the case of small $\xi$:
+\begin{eqnarray}
+  &\frac{\pi (1-\delta)}{\xi} \int\limits_0^\infty d \xi^{\prime} \, \xi^{\prime} f(\xi^{\prime}) - \mu \int\limits_\xi^\infty d \xi^{\prime} \frac{f(\xi^{\prime})}{\sqrt{\xi^{\prime 2} - f^2 (\xi^{\prime})}} + \nu = 0;\\
+  &-\frac{\pi (1-\delta)}{\xi^2} \int\limits_0^\infty d \xi^{\prime} \, \xi^{\prime} f(\xi^{\prime}) + \mu \frac{f(\xi)}{\sqrt{\xi^{2} - f^2 (\xi)}} = 0;\\
+  &\frac{\pi (1-\delta)}{\mu} \int\limits_0^\infty d \xi^{\prime} \, \xi^{\prime} f(\xi^{\prime}) =   \frac{\xi^2 f(\xi)}{\sqrt{\xi^{2} - f^2 (\xi)}} = 0;\\
+  &\left\{
+    \begin{aligned}
+      &f(\xi) = \frac{C_2 \xi}{\sqrt{\xi^4 + C_2^2}} = \frac{C_2}{\xi} + O(\frac{1}{\xi^2}),\\
+      &C_2 = \frac{\pi (1-\delta)}{\mu} \int\limits_0^\infty d \xi^{\prime} \, \xi^{\prime} f(\xi^{\prime}). 
+    \end{aligned}
+  \right. \label{asmpt_inf}
+\end{eqnarray}
+
+
+
+\subsubsection{Sewing of asympthotics}
+
+In general case we can write solution of system we are solving in view:
+\begin{equation}
+  f(\xi) = C_1 f_1 (\xi) + \frac{C_2 f_2 (\xi)}{\xi},
+  \label{eqn_sewing}
+\end{equation}
+where $f_1$ and $f_2$ -- some functions, that have known asympthotic behaviour:
+\begin{align}
+  \lim_{\xi \rightarrow 0} f_1 (\xi) &= 1, & \lim_{\xi \rightarrow \infty} f_1 (\xi) &= 0; \nonumber\\
+  \lim_{\xi \rightarrow 0} f_2 (\xi) &= 0, & \lim_{\xi \rightarrow \infty} f_2 (\xi) &= 1. \nonumber
+\end{align}
+Let's now without concretisation of these functions find some relations.
+
+We can put (\ref{eqn_sewing}) to second equations of (\ref{asmpt_0}) and (\ref{asmpt_inf}) and get system:
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      &\left[ \frac{\pi}{\mu} \int\limits_0^\infty d \xi^{\prime} \, f_1(\xi^{\prime}) \left( 1 - \frac{\delta \xi^{\prime 3} ( \xi^{\prime 2} + 16 \kappa^2 )}{(\xi^{\prime 2} + 4 \kappa^2)^{5/2}} \right) - 1 \right] C_1 + \int\limits_0^\infty d \xi^{\prime} \, f_2(\xi^{\prime}) \left( \frac{1}{\xi^{\prime 3}} - \frac{\delta ( \xi^{\prime 2} + 16 \kappa^2 )}{(\xi^{\prime 2} + 4 \kappa^2)^{5/2}} \right) C_2 = 0, \\
+      &\frac{\pi (1-\delta)}{\mu} \int\limits_0^\infty d \xi^{\prime} \, \xi^{\prime 3} f_1(\xi^{\prime}) C_1 + \left[ \frac{\pi (1-\delta)}{\mu} \int\limits_0^\infty d \xi^{\prime} \, f_2(\xi^{\prime}) - 1 \right] C_2 = 0.
+    \end{aligned}
+  \right.
+\end{equation}
+
+
+
+
+
+
+
+%To get asympthotic solution of system for (\ref{system_dimensionless}) we should simply ma
+\end{document}
