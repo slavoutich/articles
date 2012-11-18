@@ -13,7 +13,8 @@
 
 %opening
 \title{Bubblon formation. Variational approach.}
-\author{}
+\author{Vyacheslav Ostroukh}
+\author{Vitaliy Tymchyshyn}
 
 \begin{document}
 
@@ -26,7 +27,7 @@
 \section{Statement of the problem}
 
 Suppose that we have system of electrons on the liquid helium film in holding field.
-We concieder that bubblons have formed.
+We concider that bubblons have formed.
 We describe electron distribution in quasiclassical approach with density $\rho(r).$
 Suppose that curve of helium film is small, so in the order of accuracy we can think that form of electron film is the same to the form of liquid helium surface.
 We can describe this form by function $z(r),$ assuming $z(\infty)=0.$
@@ -34,11 +35,59 @@ We can describe this form by function $z(r),$ assuming $z(\infty)=0.$
 Let's now calculate energy of the film.
 Coulombian energy together with energy of interaction with dielectric film will be:
 \begin{equation}
-    E_{int}& [\rho] = \int_S d^2 r \int_S d^2 r^{\prime} \, \rho(r) \rho(r^{\prime}) \left( \frac{1}{|\vec{r} - \vec{r}^{\prime}|} - \frac{ \delta }{ \sqrt{ \left( \vec{r} - \vec{r}^{\prime} \right)^2 + 4 d^2 } } \right).
+    %E_{int} [\rho] = \int_S d^2 r \int_S d^2 r^{\prime} \, \rho(r) \rho(r^{\prime}) \left( \frac{1}{|\vec{r} - \vec{r}^{\prime}|} - \frac{ \delta }{ \sqrt{ \left( \vec{r} - \vec{r}^{\prime} \right)^2 + 4 d^2 } } \right).
+    E_{int} [\rho] = \int_S d^2 r \int_S d^2 r^{\prime} \frac{\rho(r) \rho(r^{\prime})}{|\vec{r} - \vec{r}^{\prime}|}.
+\end{equation}
+Energy of the electron film in external field:
+\begin{equation}
+  E_{ext} [\rho,z] = -E \int_S d^2 r \, \rho(r) z(r).
 \end{equation}
 Energy of surface tension:
 \begin{equation}
   E_{ST} = \sigma \int_S d^2 r \sqrt{ 1 + \left[ \vec{\nabla} u(\vec{r}) \right]^2 }.
 \end{equation}
-Energy 
+Energy of liquid helium in gravity field:
+\begin{equation}
+  E_g = \frac{g \rho}{2} \int_S d^2 r \, [u(\vec{r})]^2 .
+\end{equation}
+Now we can construct energy functional:
+\begin{equation}
+  E = E_{int} + E_{ext} + E_{ST} + E_g.
+\end{equation}
+
+\section{One bubble case}
+Let us now concider that only one bubble is formed.
+We will approximate bubble as gaussian distribution of charge.
+Let us concider total charge Q.
+We have two widths: width of charge distributions $\xi_\rho$ and width of dimples in liquid helium film made by bubble $\xi_z$.
+We get charge distribution
+\begin{equation}
+  \rho(r) = \frac{Q}{2 \pi \xi^2} e^{-\frac{r^2}{2 \xi_\rho^2}}
+\end{equation}
+and surface deformation
+\begin{equation}
+  z(r) = z_0 e^{-\frac{r^2}{2 \xi_z^2}}.
+\end{equation}
+Now we can calculate energy of bubble.
+Energy of internal interaction is:
+\begin{equation}
+  E_{int} = \frac{I_1 Q^2}{4 \pi^2 \xi_\rho},
+\end{equation}
+where
+\begin{equation}
+  I_1 = \int\limits_{-\infty}^{+\infty} dt_1 dt_2 dt_3 dt_4 \, \frac{e^{-(t_1^2+t_2^2+t_3^2+t_4^2)/2}}{\sqrt{(t_1-t_2)^2+(t_3-t_4)^2}}.
+\end{equation}
+Energy of film in external field:
+\begin{equation}
+  E_{ext} = - E Q z_0 \frac{\xi_z^2}{\xi_\rho^2+\xi_z^2}.
+\end{equation}
+
+
+
+
+
+\end{document}
+
+
+
 
