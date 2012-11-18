@@ -10,6 +10,7 @@
 %\onehalfspacing
 
 \DeclareMathOperator{\Li}{Li}
+\DeclareMathOperator{\const}{const}
 
 %opening
 \title{Bubblon formation. Variational approach.}
@@ -44,11 +45,11 @@ Energy of the electron film in external field:
 \end{equation}
 Energy of surface tension:
 \begin{equation}
-  E_{ST} = \sigma \int_S d^2 r \sqrt{ 1 + \left[ \vec{\nabla} u(\vec{r}) \right]^2 }.
+  E_{ST} = \sigma \int_S d^2 r \sqrt{ 1 + \left[ \vec{\nabla} z(\vec{r}) \right]^2 }.
 \end{equation}
 Energy of liquid helium in gravity field:
 \begin{equation}
-  E_g = \frac{g \rho}{2} \int_S d^2 r \, [u(\vec{r})]^2 .
+  E_g = \frac{g \rho}{2} \int_S d^2 r \, [z(\vec{r})]^2 .
 \end{equation}
 Now we can construct energy functional:
 \begin{equation}
@@ -81,6 +82,17 @@ Energy of film in external field:
 \begin{equation}
   E_{ext} = - E Q z_0 \frac{\xi_z^2}{\xi_\rho^2+\xi_z^2}.
 \end{equation}
+Concidering deformations small, we can expand surface energy into series over $\vec{\nabla} z(\vec{r})$ and obtain:
+\begin{equation}
+  E_{ST} \approx \sigma \int_S d^2r \, \left\{ 1 + \frac12 [\vec{\nabla} z(\vec{r})]^2 \right\} = \frac12 \pi \xi^2 z_0^2 + \const. 
+\end{equation}
+Finally, gravitational energy will be:
+\begin{equation}
+  E_g = \frac12 \pi g \rho z_0^2 \xi_z^2
+\end{equation}
+
+
+
 
 
 
